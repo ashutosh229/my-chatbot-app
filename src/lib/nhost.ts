@@ -1,8 +1,8 @@
 import { NhostClient } from "@nhost/nextjs";
 
 const nhost: NhostClient = new NhostClient({
-  subdomain: process.env.NEXT_PUBLIC_SUBDOMAIN,
-  region: process.env.NEXT_PUBLIC_REGION,
+  subdomain: "anubbxordeumafwcwlpw",
+  region: "ap-south-1",
 });
 
 export default nhost;

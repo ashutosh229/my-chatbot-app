@@ -1,17 +1,20 @@
-import nhost from "@/lib/nhost";
-import { NhostNextProvider } from "@nhost/nextjs";
-import { AppProps } from "next/app";
-import { NhostAuthProvider } from "@nhost/react-auth";
-import { NhostApolloProvider } from "@nhost/react-apollo";
+"use client";
+import { useRouter } from "next/navigation";
 
-const App = ({ Component, pageProps }: AppProps) => {
+const Home = () => {
+  const router = useRouter();
   return (
-    <NhostNextProvider nhost={nhost} initial={pageProps.nhostSession}>
-      <NhostAuthProvider nhosht={nhost}>
-        <NhostApolloProvider graphqlUrl={process.env.NEXT_PUBLIC_GRAPHQL_URL!}>
-          <Component {...pageProps} />
-        </NhostApolloProvider>
-      </NhostAuthProvider>
-    </NhostNextProvider>
+    <>
+      <div>Home</div>
+      <button
+        onClick={() => {
+          router.push("/auth/login");
+        }}
+      >
+        Login
+      </button>
+    </>
   );
 };
+
+export default Home;
